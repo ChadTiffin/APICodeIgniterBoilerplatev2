@@ -29,17 +29,6 @@ In the `application/config/config.php` file, `$config['base_url']` should be set
 
 In the `application/config/constants.php` file, the `FRONT_END_DOMAIN` should be set to the domain name that serves the client application.
 
-Third party API keys such as for Google mapping can also be found in /config/constants.php.
-
-DB Migrations
-----
-
-The database schema is built using CodeIgniter's Migrations library. Migrations are set up within the Migrate controller, and can be run from the browser by navigating to  `/migrate/run`.
-
-NOTE: It is ESSENTIAL for production to delete the Migrate controller to avoid accidental migrations or seeding from occuring.
-
-Seeding of fake data can be accomplished in several steps simply by clicking through the provided links after the migration is run. Each seed step will return a link to complete the next seed step. For more information on the specific seeds available, please review the /application/controllers/Migrate.php file directly.
-
 API Usage
 ====
 
@@ -277,7 +266,7 @@ There is a `Base_Model` class which implements the 5 standard endpoints (`/get`,
 Conventions
 ----
 
-In general model class names are named as the singular, camel case form of the record, and their corresponding table names are the snake case plural. For example, time logs would be handled by the `TimeLog` model, which maps to the `time_logs` table.
+In general model class names are named as the singular, Pascal case form of the record, and their corresponding table names are the snake case plural. For example, time logs would be handled by the `TimeLog` model, which maps to the `time_logs` table, however this is not an enforced constraint.
 
 Model Properties
 ----
