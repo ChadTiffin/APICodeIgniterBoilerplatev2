@@ -37,13 +37,13 @@ The API is organized by Resource, which maps to CodeIgniter Models. Each Resourc
 The API url format is as follows:
 
 ~~~
-https://api.yourdomain.com/api/{Resource}/{Operation}
+https://yourdomain.com/api/{Resource}/{Operation}
 ~~~
 
 example:
 
 ~~~
-https://api.yourdomain.com/api/Job/get
+https://yourdomain.com/api/Job/get
 ~~~
     
 Returns JSON result of all records belonging to the Job.php CodeIgniter Model.
