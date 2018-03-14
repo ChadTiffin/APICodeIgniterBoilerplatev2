@@ -20,7 +20,7 @@ Installation & Setup
 
 Normal CodeIgniter 3 set-up standards should be followed, such as setting the db credentials for the appropriate environment within the application/config/ directory.
 
-###Setting Environment Constants
+### Setting Environment Constants
 
 In the `application/config/config.php` file, `$config['base_url']` should be set to the the base url that's serving the API (ex. `https://api.dev.getonteam.com`).
 
@@ -102,7 +102,7 @@ Enpoint 	| HTTP Request Type | Accepted Parameters	| Description
 
 The `/get` endpoint returns a record set from the defined resource. It accepts a number of parameters to help format and filter the response result accordingly, and to define the related models that should get returned.
 
-###Including Child Models
+### Including Child Models
 
 Use the `include` GET query parameter. Available for `/get` and `/find` endpoints.
 
@@ -139,7 +139,7 @@ Would return the following JSON structure:
 
 Notice the `User` property attached to each returned Job record, with an array of users that belong that a particular job.
 
-###Filtering Result Sets
+### Filtering Result Sets
 
 Use the `filters` GET query parameter. Available for `/get` endpoints.
 
@@ -190,7 +190,7 @@ filters: [
 ]
 ~~~
 
-###Sorting Result Sets
+### Sorting Result Sets
 
 Use the `orders` GET query parameter. Available for `/get` endpoints.
 
@@ -206,7 +206,7 @@ orders: [
 ]
 ~~~
 
-###Pagination
+### Pagination
 
 Use the `page` GET query parameter. Available for `/get` endpoints.
 
@@ -235,7 +235,7 @@ The `/find` endpoint accepts the `include` parameter just like the `/get` endpoi
 
 The `/save` endpoint accepts a POST request of form-data to INSERT or UPDATE a model record. For UPDATES, the record `id` must be included as a field, otherwise a new record will be created.
 
-###Updating Child Records through a Lookup Table
+### Updating Child Records through a Lookup Table
 
 In most cases any child model records sent back as a form-data field will be ignored and not saved, however if a child model is detected through a lookup table, and the field value is an array of IDs, then that child model will be updated, overwriting any existing child records for that model and replacing it with the new provided list of IDs.
 
@@ -304,7 +304,7 @@ Model Relations
 
 There is a robust means of declaring relations between different models through the `$relations` model property, which should contain an array of model declarations.
 
-###Belongs to
+### Belongs to
 
 To declare a "Belongs To" relationship, where a foreign key is set on the model's own table, the relation declaration should be as follows:
 
@@ -342,7 +342,7 @@ Now when a job record is queried, with the `Customer` model included, it would p
 }
 ~~~
 
-###One to Many
+### One to Many
 
 The opposite of a "Belongs To" relationship would be a "One-to-Many" relationship. Using the same example of Customers and Jobs, a customer would have many jobs, so in the `Customer` model, we would declare it like so:
 
@@ -356,7 +356,7 @@ The opposite of a "Belongs To" relationship would be a "One-to-Many" relationshi
 
 Note the `hasMany` property which is set to `true`. This notifies the model to look for the 'customer_id' key on the child table (jobs) rather than its own table (customers), and return an array of result objects, rather than just a single object.
 
-###Many to Many
+### Many to Many
 
 For many-to-many relationships, that are accessed through a lookup table, we must declare the name of the lookup table, as well as the parent model's key being used on the lookup table:
 
@@ -402,7 +402,7 @@ public $relations = [
 ]
 ~~~
 
-###Renaming Result Properties
+### Renaming Result Properties
 
 By default, the model name will be used as the property that the child records will be appended to in the main result set. Often a model will have a different relationship to the same model, such as a model which tracks who **created** the record and who **updated** the record last. These are both relationships to the same model (the `User` model), so they can't BOTH be included under the 'User' property.
 
