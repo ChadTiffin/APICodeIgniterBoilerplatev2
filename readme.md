@@ -15,11 +15,6 @@ All requests are run through a single `API` controller (`/application/controller
 
 A Base Model is utilized which all other models extend from. The Base model implements the API's standard `/get`, `/find`, `/save`, `/save-batch`, and `/delete` endpoints. Any specific record-level permissions are handled directly in the relevant model itself.
 
-Here is a diagram illustrating the API's basic architecture:
-
-![site architecture](https://getonteam.com/assets/TeamAPIArchitecture.png)
-
-
 Installation & Setup
 ====
 
