@@ -25,7 +25,7 @@ Normal CodeIgniter 3 set-up standards should be followed, such as setting the db
 
 ### Setting Environment Constants
 
-In the `application/config/config.php` file, `$config['base_url']` should be set to the the base url that's serving the API (ex. `https://api.dev.getonteam.com`).
+In the `application/config/config.php` file, `$config['base_url']` should be set to the the base url that's serving the API (ex. `https://api.yoursite.com`).
 
 In the `application/config/constants.php` file, the `FRONT_END_DOMAIN` should be set to the domain name that serves the client application.
 
@@ -48,13 +48,13 @@ The API is organized by Resource, which maps to CodeIgniter Models. Each Resourc
 The API url format is as follows:
 
 ~~~
-https://api.getonteam.com/api/{Resource}/{Operation}
+https://api.yourdomain.com/api/{Resource}/{Operation}
 ~~~
 
 example:
 
 ~~~
-https://api.getonteam.com/api/Job/get
+https://api.yourdomain.com/api/Job/get
 ~~~
     
 Returns JSON result of all records belonging to the Job.php CodeIgniter Model.
