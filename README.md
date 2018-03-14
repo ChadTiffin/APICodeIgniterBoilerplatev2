@@ -66,7 +66,7 @@ In the case where headers cannot be set, it is recommended that a user token is 
 Allowing Public Access to Specific Endpoints
 ----
 
-Some endpoints may need to be public access (not requiring Authentication via API key or token), for example the `/api/User/authenticate` endpoint, which takes a username & password and returns an API key. In these cases there exists a `$unprotected_endpoints` property in the `API` Controller class (`/application/controllers/Api.php`) which is an array of endpoints. To set an enpoint for open access, simply add it as an element to that array like so:
+Some endpoints may need to be public access (not requiring Authentication via API key or token), for example the `/api/User/authenticate` endpoint, which takes a username & password and returns an API key. In these cases there exists a `$unprotected_endpoints` property in the `API` Controller class (`/application/controllers/Api.php`) which is an array of endpoints. To set an endpoint for open access, simply add it as an element to that array like so:
 
 ~~~
 public $unprotected_endpoints = [
@@ -81,7 +81,7 @@ Standard Request Operations
 
 Below is a list of the standard API operations that are exposed for each resource. In some cases these methods may be not available for particular resource. Other resources may have additional endpoints exposed, which will be defined in the CI models.
 
-Enpoint 	| HTTP Request Type | Accepted Parameters	| Description
+Endpoint 	| HTTP Request Type | Accepted Parameters	| Description
 ----		|----				|----					|----	
 `/api/{Resource}/get` 		| GET 				| include, filters, orders, page | Retrieves a set of records from a resource. Ex. TimeLog/get
 `/api/{Resource}/find/{slug or id}` | GET | include | Retrieves a single record based on declared record id or slug
@@ -261,6 +261,8 @@ No cascade deleting occurs.
 Working with Models
 ====
 
+API Resources map directly to CodeIgniter models.
+
 There is a `Base_Model` class which implements the 5 standard endpoints (`/get`, `/find`, `/save`, etc), and regular models should extend this class in order to inherit the 5 standard endpoints automatically.
 
 Conventions
@@ -270,6 +272,8 @@ In general model class names are named as the singular, Pascal case form of the 
 
 Model Properties
 ----
+
+Models make use of several properties which allow an easy declaritive approach to determining default behaviour.
 
 Property | Type | Description
 ---- | ---- | ----
@@ -284,7 +288,6 @@ Property | Type | Description
 `$internal_model_only` | Boolean | If set to the true, the entire model will not be available as an API resource
 `$relations` | Array | Defines what other Models are related to this model. See below for more information.
 `$user_id` | Integer | This will be set to the user `id` that has been identified by the the attached API key. Only the parent model (the resource listed in the API call) will have the `user_id` property set. Any additional models that need to be loaded will need to have the `user_id` property set manually. Ex. `$this->job->user_id = $this->user_id;`
-`$has_full_perms` | Boolean | If true, any record level permissions don't need to be checked
 
 Model Relations
 ----
