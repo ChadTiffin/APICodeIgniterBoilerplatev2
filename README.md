@@ -5,8 +5,11 @@ The TEAM App is powered by an API loosely following REST principles. It is built
 
 Table of Contents
 ----
+1. TEAM REST API - Introduction
+2. Installation & Setup
+3. API Usage
+4. Working with Models
 
-[TOC]
 
 Architecture
 ----
@@ -265,11 +268,6 @@ The `/save-batch` endpoint will save a collection of records simultaneously in a
 The `/delete` endpoint takes a POST request with the `id` of the record to be deleted as a form-data field. Whether the record is truly deleted or just marked as deleted depends on whether that model's `$soft_delete` property is `true` or `false`.
 
 No cascade deleting occurs.
-
-Serving Images Securely
-====
-
-In many cases it is necessary to serve images securely through a tokenized URL. This should be accomplished by adding a method to the `/application/controllers/Resources.php` Controller class.
 
 Working with Models
 ====
